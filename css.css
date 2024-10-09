@@ -1,0 +1,205 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing:0;
+    font-family: sans-serif;
+    border:0;
+    outline:0;
+}
+
+body{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background:rgb(43, 22, 53);
+}
+
+.dice{
+    position: relative;
+    width:100px;
+    height:100px;
+    transform-style:preserve-3d;
+    transform: rotateX(50deg) rotateY(50deg);
+    
+}
+
+@keyframes rolling {
+    0% {
+        top:0px;
+        transform: rotateX(360deg) rotateY(360deg);
+    }
+
+    50% {
+        top:-200px;
+        transform: rotateX(12000deg) rotateY(12000deg);
+    }
+
+    100% {
+        top:0px;
+        transform: rotateX(360deg) rotateY(360deg);
+    }
+}
+
+
+.face{
+    position:absolute;
+    width:100%;
+    height:100%;
+    border:5px solid white;
+    border-radius:10px;
+    background:whitesmoke;
+    transform-style:preserve-3d;
+}
+
+.face::before{
+    content: ' ';
+    position: absolute;
+    width:100%;
+    height:100%;
+    border-radius:20px;
+    background:whitesmoke;
+    transform: translatez(-1px);
+}
+
+.face::after{
+    content: ' ';
+    position: absolute;
+    width:18px;
+    height:18px;
+    left:50%;
+    top:50%;
+    background:black; 
+    border-radius:50%;
+}
+
+.front{
+    transform: translatez(50px);
+}
+.back{
+    transform: rotateX(180deg) translatez(50px);
+}
+
+.top{
+    transform: rotateX(90deg) translatez(50px);
+
+}
+.bottom{
+    transform: rotateX(-90deg) translatez(50px);
+
+}
+.right{
+    transform: rotateY(90deg) translatez(50px);
+
+}
+.left{
+    transform: rotateY(-90deg) translatez(50px);
+
+}
+
+.front::after{
+    width:30px;
+    height:30px;
+    background:red;
+    margin: -15px 0 0 -15px;
+}
+
+.back::after{
+    margin: -35px 0 0 -30px;
+    box-shadow: 40px 0, 0 25px, 40px 25px, 0 50px, 40px 50px;
+}
+
+.top::after{
+    margin: -35px 0 0 -30px;
+    box-shadow: 40px 0, 20px 25px, 0 50px, 40px 50px;
+}
+
+.bottom::after{
+    margin: -35px 0 0 -30px;
+    box-shadow: 20px 25px, 40px 50px ;
+}
+
+.right::after{
+    margin: 15px 0 0 -35px;
+    box-shadow: 50px 0, 0 -50px, 50px -50px;
+}
+
+.left::after{
+    margin: 15px 0 0 -35px;
+    box-shadow: 50px -50px;
+}
+
+.container{
+    position: relative;
+}
+.roll{
+    width: 110px;
+    position: absolute;
+    margin-top: 70px;
+    border:2px solid black;
+    border-radius:10px;
+    font-size:10px;
+    color:black;
+}
+.roll:hover{
+    background-color: black;
+    color:white;
+}
+
+.lefttext{
+    top:50%;
+    left:10%;
+}
+.righttext{
+    top: 50%;
+    right:10%;
+}
+
+.text{
+    position: absolute;
+    color: white;
+    font-size:100px;
+}
+.bottomtext{
+    bottom:10%;
+    font-size: 20px;
+}
+
+.scoreboard{
+    position: absolute;
+    color:white;
+    top:10px;
+    display: flex;
+    gap:50px;
+}
+
+.retrybtn{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    border:2px solid black;
+    border-radius:50%;
+    font-size:10px;
+    color:black;
+    bottom:10px;
+    right:30px;
+    font-weight: 800;
+
+}
+.retrybtn:hover{
+    background-color: red;
+    color:white;
+}
+
+@media (max-width: 767px) {
+    body {
+        background-color: rgb(5, 55, 96);
+    }
+    .text {
+        font-size: 20px; 
+    }
+  .retrybtn{
+    bottom:10px;
+  }
+}
+
